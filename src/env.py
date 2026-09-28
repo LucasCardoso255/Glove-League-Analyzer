@@ -8,6 +8,8 @@ class Credentials:
     riot_api_key: str
     korean_game_data_url: str
     korean_player_data_url: str
+    supabase_url: str
+    supabase_key: str
 
 class env:
     def load_env(self):
@@ -18,7 +20,9 @@ class env:
         credentials = Credentials(
             riot_api_key = dotenv.get_key(DOTENV_PATH, 'RIOT_API_KEY'),
             korean_game_data_url = dotenv.get_key(DOTENV_PATH, 'KOREAN_GAME_DATA_URL'),
-            korean_player_data_url = dotenv.get_key(DOTENV_PATH, 'KOREAN_PLAYER_DATA_URL') 
+            korean_player_data_url = dotenv.get_key(DOTENV_PATH, 'KOREAN_PLAYER_DATA_URL'),
+            supabase_url = dotenv.get_key(DOTENV_PATH, 'SUPABASE_URL'),
+            supabase_key = dotenv.get_key(DOTENV_PATH,'SUPABASE_KEY')
         )
 
         for field in fields(credentials):
