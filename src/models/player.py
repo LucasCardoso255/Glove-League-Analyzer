@@ -15,3 +15,6 @@ class LeagueLeaderboards(BaseModel):
     tier: str
     queue: str
     entries: list[PlayerLeaderboards]
+
+class Player(BaseModel):
+    ...
