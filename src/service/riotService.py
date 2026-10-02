@@ -7,16 +7,15 @@ class RiotService:
         self.credentials = credentials 
         self.headers = { "X-Riot-Token": credentials.riot_api_key }
 
-    def map_leaderboard_data(data_to_map) -> list[PlayerLeaderboards]:
+    def map_leaderboard_data(self, data_to_map) -> LeagueLeaderboards:
         league_leaderboards = LeagueLeaderboards.model_validate(data_to_map)
         return league_leaderboards
 
     def get_leaderboard_data(self):
-        res = requests.get(self.credentials.korean_game_data_url, self.headers)
-        return res
+        return requests.get(self.credentials.korean_game_data_url, headers=self.headers)
 
     def get_player_data(self, puuid):
-        res = requests.get(self.credentials.korean_player_data_url+puuid, self.headers)
+        res = requests.get(self.credentials.korean_player_data_url+puuid, headers=self.headers)
         return res
 
     def map_player_data(data_to_map) -> algumaporra[daAPIdaRiot]:
